@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Reporte de asistencia</title><style>table{border-collapse:collapse}th,td{border:1px solid #bbb;padding:6px}</style></head>
+<body>
+<h1>Reporte diario</h1>
+<form method="get"><label>Fecha <input type="date" name="fecha" value="{{ fecha|date:'Y-m-d' }}"></label><button>Consultar</button></form>
+<table><thead><tr><th>Empleado</th><th>Entrada</th><th>Salida almuerzo</th><th>Regreso</th><th>Salida</th><th>Asignada</th><th>Atraso</th><th>Estado</th></tr></thead>
+<tbody>{% for item in datos %}<tr><td>{{ item.empleado.nombre }}</td><td>{{ item.entrada|time:'H:i' }}</td><td>{{ item.salida_almuerzo|time:'H:i' }}</td><td>{{ item.regreso_almuerzo|time:'H:i' }}</td><td>{{ item.salida|time:'H:i' }}</td><td>{{ item.hora_asignada|time:'H:i' }}</td><td>{{ item.minutos_atraso }}</td><td>{{ item.estado }}</td></tr>{% empty %}<tr><td colspan="8">No hay empleados activos.</td></tr>{% endfor %}</tbody></table>
+</body></html>

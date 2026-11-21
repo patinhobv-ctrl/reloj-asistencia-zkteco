@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Asistencia ZKTeco</title></head>
+<body>
+<h1>Sistema de asistencia ZKTeco</h1>
+<p><a href="{% url 'reporte' %}">Abrir reporte diario</a></p>
+<h2>Empleados activos</h2>
+<ul>{% for empleado in empleados %}<li>{{ empleado.codigo }} - {{ empleado.nombre }}</li>{% empty %}<li>No hay empleados cargados.</li>{% endfor %}</ul>
+</body></html>
